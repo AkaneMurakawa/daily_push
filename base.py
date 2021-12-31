@@ -45,7 +45,7 @@ CONFIG = {
     'LOG_LEVEL': LEVEL_WARMING,
     # 日志文件大小限制，单位:字节，默认1MB
     'LOG_LIMIT_SIZE_BYTE': 1 * 1024 * 1024,
-    # hexo资源路径
+    # hexo资源路径，以/尾巴
     'HEXO_PATH': './',
 }
 

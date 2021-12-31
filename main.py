@@ -41,7 +41,7 @@ def run():
     # fish_job: 每半小时执行
     schedule.every(HALF_HOUR_IN_MINUTES).minutes.do(run_threaded, do_fish_job)
     # weather_job: 每天九点执行
-    schedule.every().day().at("09:00").do(run_threaded, do_weather_job)
+    schedule.every().day.at("09:00").do(run_threaded, do_weather_job)
     while True:
         schedule.run_pending()
 
