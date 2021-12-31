@@ -7,11 +7,17 @@ weather job
 :date: 2021-12-31
 """
 
-import requests
-from base import send_ding_talk
+from base import *
 
 
 def do_weather_job():
+    try:
+        send_weather()
+    except Exception as e:
+        log('天气日常推送异常', e, level=LEVEL_ERROR)
+
+
+def send_weather():
     city = 'Shenzhen'
     language = "zh-CN"
     unit = 'm'
@@ -24,6 +30,7 @@ def do_weather_job():
     }
     url = 'http://wttr.in/' + city + '?format=4&' + unit
     response = requests.get(url, headers=headers)
+    response.raise_for_status()
     text = '### 又是新的一天\n\n'
     text += response.text
     send_ding_talk('天气小助手推送', text)

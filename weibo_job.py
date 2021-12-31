@@ -11,8 +11,11 @@ from base import *
 
 
 def do_weibo_job():
-    for key, value in CONFIG.get('WEIBO_UUID_LIST').items():
-        weibo(key, value)
+    try:
+        for key, value in CONFIG.get('WEIBO_UUID_LIST').items():
+            weibo(key, value)
+    except Exception as e:
+        log('微博日常推送异常', e, level=LEVEL_ERROR)
 
 
 def weibo(name, uuid):
@@ -49,6 +52,7 @@ def weibo(name, uuid):
                       'Chrome/92.0.4515.159 Safari/537.36',
     }
     response = requests.get(url, headers=headers)
+    response.raise_for_status()
     data = response.json().get('data')
     data_list = data.get('list')
 

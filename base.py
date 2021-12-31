@@ -105,8 +105,8 @@ def send_ding_talk(title, text):
     try:
         response = requests.post(CONFIG.get('DING_TALK_URL'), headers=headers, data=json.dumps(data))
         response.raise_for_status()
-    except:
-        log('钉钉推送失败', level=LEVEL_ERROR)
+    except Exception as e:
+        log('钉钉推送失败', e, level=LEVEL_ERROR)
     # 防止发送的频率过高
     time.sleep(2)
 
