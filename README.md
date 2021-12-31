@@ -26,3 +26,8 @@ pip install requests
 ```bash
 python main.py &
 ```
+
+## 测试
+```bash
+python main.py test
+```

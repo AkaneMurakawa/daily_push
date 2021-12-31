@@ -10,6 +10,7 @@
 from base import *
 import schedule
 import threading
+import sys
 from weibo_job import do_weibo_job
 from fish_job import do_fish_job
 from weather_job import do_weather_job
@@ -36,6 +37,14 @@ def run():
     执行任务
     :return:
     """
+    if len(sys.argv) >= 2 and sys.argv[1] == 'test':
+        schedule.every(10).seconds.do(run_threaded, do_weibo_job)
+        schedule.every(5).seconds.do(run_threaded, do_fish_job)
+        schedule.every(5).seconds.do(run_threaded, do_weather_job)
+        while True:
+            schedule.run_pending()
+        return
+
     # weibo_job: 每一小时执行
     schedule.every(ONE_HOUR_IN_SECONDS).seconds.do(run_threaded, do_weibo_job)
     # fish_job: 每半小时执行

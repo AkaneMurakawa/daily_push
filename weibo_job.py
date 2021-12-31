@@ -105,7 +105,7 @@ def send_weibo_to_ding_talk(name, content):
         log('前1小时后内容, 跳过')
         return
 
-    ding_talk_weibo_text = '### ' + name + '\n\n' + created_at + '来自' + source + '\n\n\n\n'
+    ding_talk_weibo_text = '#### ' + name + '\n\n' + created_at + '来自' + source + '\n\n\n\n'
     ding_talk_weibo_text += weibo_text + '\n\n'
 
     if pic_infos:

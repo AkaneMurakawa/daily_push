@@ -31,6 +31,6 @@ def send_weather():
     url = 'http://wttr.in/' + city + '?format=4&' + unit
     response = requests.get(url, headers=headers)
     response.raise_for_status()
-    text = '### 又是新的一天\n\n'
+    text = '#### 又是新的一天\n\n'
     text += response.text
     send_ding_talk('天气小助手推送', text)
