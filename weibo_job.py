@@ -65,7 +65,7 @@ def process_weibo_to_ding_talk(name, data_list):
 def process_weibo_to_markdown(name, data_list):
     now_time = time.strftime("%Y%m%d", time.localtime())
     # 文件名称格式：weibo_yyyymmdd.md 例如: weibo_20211231.md
-    filename = 'weibo_' + str(now_time) + ".md"
+    filename = CONFIG.get('HEXO_PATH') + 'weibo_' + str(now_time) + ".md"
     # 追加
     with open(filename, "a+", encoding='utf-8') as f:
         for content in data_list:
@@ -117,7 +117,7 @@ def send_weibo_to_ding_talk(name, content):
 
 def save_weibo_by_markdown(f, filename, name, content):
     """
-    保存微博的内容为markdown文件
+    保存微博的内容为hexo格式的markdown文件
     :param f: 文件
     :param filename: 文件名称
     :param name: 博主名称
