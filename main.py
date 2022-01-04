@@ -14,6 +14,7 @@ import sys
 from weibo_job import do_weibo_job
 from fish_job import do_fish_job
 from weather_job import do_weather_job
+from hexo_job import do_hexo_job
 
 
 def run_threaded(job_func):
@@ -41,6 +42,7 @@ def run():
         schedule.every(10).seconds.do(run_threaded, do_weibo_job)
         schedule.every(5).seconds.do(run_threaded, do_fish_job)
         schedule.every(5).seconds.do(run_threaded, do_weather_job)
+        schedule.every(30).seconds.do(run_threaded, do_hexo_job)
         while True:
             schedule.run_pending()
         return
@@ -54,6 +56,8 @@ def run():
     schedule.every().minutes.at(':30').do(run_threaded, do_fish_job)
     # weather_job: 每天九点执行
     schedule.every().day.at("09:00").do(run_threaded, do_weather_job)
+    # hexo_job: 每一小时执行
+    schedule.every(ONE_HOUR_IN_SECONDS).seconds.do(run_threaded, do_hexo_job)
     while True:
         schedule.run_pending()
 

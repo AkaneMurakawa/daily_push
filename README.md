@@ -7,6 +7,7 @@
 │  fish_job.py      喝水任务
 │  weibo_job.py     微博任务
 │  weather_job.py   天气任务
+│  hexo_job.py      hexo g任务
 │  main.py          程序入口
 │  README.md        说明
 ```
@@ -31,4 +32,24 @@ python main.py &
 ## 测试
 ```bash
 python main.py test
+```
+
+## nginx on termux[可选]
+```text
+# 安装
+pkg install nginx
+# 查看版本
+nginx -v
+# 查看配置
+nginx -t
+
+cd /data/data/com.termux/files/usr/etc/nginx
+vim nginx.conf
+# 将location下的root路径改为hexo的public目录
+
+# 重启配置
+nginx -s reload
+
+# 访问nginx
+http://<ip>:8080
 ```
