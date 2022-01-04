@@ -78,7 +78,7 @@ FISH_CONFIG = [
 
 def do_fish_job():
     try:
-        hour = time.strftime("%H", time.localtime())
+        hour = int(time.strftime("%H", time.localtime()))
         # 9点到18点执行
         if hour < 9 or hour > 18:
             return
