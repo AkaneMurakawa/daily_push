@@ -6,6 +6,7 @@ fish job
 :author: AkaneMurakwa
 :date: 2021-12-31
 """
+import time
 
 from base import *
 import random
@@ -77,8 +78,12 @@ FISH_CONFIG = [
 
 def do_fish_job():
     try:
+        hour = time.strftime("%H", time.localtime())
+        # 9点到18点执行
+        if hour < 9 or hour > 18:
+            return
         i = random.randint(0, len(FISH_CONFIG) - 1)
-        send_ding_talk('fish日常推送', '#### 喝水小助手提醒你记得喝水\n\n' + FISH_CONFIG[i])
+        send_ding_talk('fish日常推送', '#### 【喝水小助手提醒你记得喝水】\n\n' + FISH_CONFIG[i])
     except Exception as e:
         log('fish日常推送异常', e, level=LEVEL_ERROR)
 

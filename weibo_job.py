@@ -105,7 +105,7 @@ def send_weibo_to_ding_talk(name, content):
         log('前1小时后内容, 跳过')
         return
 
-    ding_talk_weibo_text = '#### ' + name + '\n\n' + created_at + '来自' + source + '\n\n\n\n'
+    ding_talk_weibo_text = '#### 【' + name + '的微博】\n\n' + created_at + '来自' + source + '\n\n\n\n'
     ding_talk_weibo_text += weibo_text + '\n\n'
 
     if pic_infos:
@@ -157,7 +157,7 @@ def save_weibo_by_markdown(f, filename, name, content):
         return
 
     # 写入内容
-    weibo_file_text = '### ' + name + '\n' + created_at + '来自' + source + '\n<br/>'
+    weibo_file_text = '### ' + name + '的微博\n' + created_at + '来自' + source + '\n<br/>'
     weibo_file_text += weibo_text
 
     if pic_infos:

@@ -4,8 +4,9 @@
 ## 目录结构
 ```text
 │  base.py          基础配置，公共组件
-│  fish_job.py      任务
-│  weibo_job.py     任务
+│  fish_job.py      喝水任务
+│  weibo_job.py     微博任务
+│  weather_job.py   天气任务
 │  main.py          程序入口
 │  README.md        说明
 ```
