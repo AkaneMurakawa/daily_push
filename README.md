@@ -6,6 +6,10 @@
 - 将微博博主发布的内容自动保存为hexo的markdown格式，每日执行`hexo g`命令渲染hexo文件，通过nginx静态资源映射~
 - 每天喝水提醒~
 
+## 预览
+![image](./images/demo.png)
+
+
 ## 目录结构
 ```text
 │  base.py          基础配置，公共组件
