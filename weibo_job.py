@@ -89,7 +89,7 @@ def send_weibo_to_ding_talk(name, content):
     weibo_text = content.get('text_raw')
     # 发布时间, 格式：'Mon Dec 27 12:00:02 +0800 2021'
     created_at = content.get('created_at')
-    timestamp = time.mktime(time.strptime(created_at, '%a %b %d %H:%M:%S +0800 %Y'))
+    timestamp = datetime.strptime(created_at, '%a %b %d %H:%M:%S %z %Y').timestamp()
     now = time.time()
     # 来源
     source = content.get('source')
@@ -135,7 +135,7 @@ def save_weibo_by_markdown(f, filename, name, content):
     # 发布时间, 格式：'Mon Dec 27 12:00:02 +0800 2021'
     created_at = content.get('created_at')
     # 发布时间转换为时间戳
-    timestamp = time.mktime(time.strptime(created_at, '%a %b %d %H:%M:%S +0800 %Y'))
+    timestamp = datetime.strptime(created_at, '%a %b %d %H:%M:%S %z %Y').timestamp()
     # 当前时间
     now = time.time()
     now_time = time.strftime("%Y%m%d", time.localtime())
