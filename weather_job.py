@@ -33,4 +33,8 @@ def send_weather():
     response.raise_for_status()
     text = '#### 又是新的一天\n\n'
     text += response.text
-    send_ding_talk('天气小助手推送', text)
+    send_ding_talk('天气小助手日常推送', text)
+
+
+if __name__ == '__main__':
+    send_weather()

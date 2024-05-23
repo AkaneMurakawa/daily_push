@@ -178,3 +178,7 @@ def save_weibo_by_markdown(f, filename, name, content):
         f.write(hexo)
     f.write(weibo_file_text)
     log(name, '微博日常写入成功', level=LEVEL_WARMING)
+
+
+if __name__ == '__main__':
+    do_weibo_job()

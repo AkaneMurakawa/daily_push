@@ -68,11 +68,6 @@ FISH_CONFIG = [
     '面试官：“。。。。。”\n\n',
     # 4
     '一包茶，一包烟，一个bug改一天',
-    # 5 Q都会Q歪来
-    '你♞个彬瑞文，你还绿风局局长，q都会q歪来，c你♞，不鲨彬是什么呀\n\n'
-    '![bzzb](http://tiebapic.baidu.com/forum/w%3D580/sign='
-    '13d1a91da419ebc4c0787691b227cf79/6c969ed0f703918fca0cabb2463d269758eec41f.jpg)',
-
 ]
 
 
@@ -88,3 +83,5 @@ def do_fish_job():
         log('fish日常推送异常', e, level=LEVEL_ERROR)
 
 
+if __name__ == '__main__':
+    do_fish_job()

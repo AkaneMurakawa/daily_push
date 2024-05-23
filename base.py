@@ -33,7 +33,7 @@ LOG_LEVEL = {
 CONFIG = {
     # 钉钉
     'DING_TALK_URL': 'https://oapi.dingtalk.com/robot/send?access_token='
-                     'af6a8a0698e2ede31a380d69d3df4b3f8d6a4d405b6e966501445a28d5504cfc',
+                     '0bf0a49ccb54aa1f8f69679cd9b6d4633b1c4502bf5699199d45c4c07c470ccf',
     # 微博UUID, key: 博主名(自定义)， value: uuid
     'WEIBO_UUID_LIST': {
         '郭宇': '137601206',
